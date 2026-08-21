@@ -1364,7 +1364,7 @@ void CObjectTeleporter::UpdateMaxHealth( int nHealth, bool bForce /* = false */ 
 	if ( m_bCarryDeploy && !bForce )
 		return;
 
-	float flPercentageHealth = (float)GetHealth()/(float)GetMaxHealth();
+	float flPercentageHealth = Min((float)GetHealth()/(float)GetMaxHealth(), 1.f);
 	
 	SetMaxHealth( nHealth );
 	SetHealth( nHealth * flPercentageHealth );
